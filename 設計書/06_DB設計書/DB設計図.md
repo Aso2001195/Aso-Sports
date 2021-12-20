@@ -58,3 +58,4 @@
 |image|varchar(200)||○||
 |del_flag|int(1)||||
 |reg_date|datetime||○||
+|inventory|int(3)||○||
