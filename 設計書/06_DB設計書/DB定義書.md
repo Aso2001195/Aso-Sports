@@ -64,3 +64,4 @@
 |画像ファイル名|image|varchar(200)||○||
 |削除フラグ|del_flag|int(1)||||
 |登録日|reg_date|datetime||○||
+|在庫|inventory|int(3)||○||
