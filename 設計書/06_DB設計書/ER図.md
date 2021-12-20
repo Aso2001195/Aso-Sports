@@ -63,6 +63,7 @@ package "ECサイト" as target_system {
         image
         del_flag
         reg_date
+        inventory
     }
     
     entity "カテゴリマスタ" as category <m_category> <<M,MASTER_MARK_COLOR>> {
