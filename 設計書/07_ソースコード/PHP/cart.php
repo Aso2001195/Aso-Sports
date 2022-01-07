@@ -72,11 +72,11 @@ if(!empty($_SESSION['product'])){
         echo '<tr>';
         echo '<td><a href="product.php?item_name=',$product['name'],'">',$product['name'],'</a></td>';
         echo '<td>なし</td>';
-        echo '<td>',$product['price'],'</td>';
+        echo '<td>￥',$product['price'],'</td>';
         echo '<td> ',$product['count'],' </td>';
         $subtotal=$product['price']*$product['count'];
         $total+=$subtotal;
-        echo '<td>',$subtotal,'</td>';
+        echo '<td>￥',$subtotal,'</td>';
         echo "<td><a href='cart-delete.php?item_code={$item_code}'>削除</a></td>";
         echo '</tr>';
     }
@@ -115,8 +115,8 @@ if(!empty($_SESSION['product'])){
         } else if ($category == 24) {
             echo $bshoe;
         }
+        echo '<input type="button" id="back" value="商品一覧に戻る"></a>';
     }
-    echo '<input type="button" value="一覧に戻る"></a>';
     if(isset($_SESSION['customer'])) {
         echo '<form action="cart-out.php" method="post">';
         echo '<input type="hidden" name="customer_code" value="', $_SESSION['customer']['customer_code'], '">';
@@ -124,10 +124,10 @@ if(!empty($_SESSION['product'])){
         echo '<input type="submit" value="確定">';
         echo '</form>';
     }else{
-        echo '<p>購入するにはログインしてください</p>';
+        echo '<p id="err">購入するにはログインしてください</p>';
     }
 }else{
-    echo 'カートに商品がありません<br>';
+    echo '<p id="err">カートに商品がありません</p>';
     echo '<a href="http://aso2001195.perma.jp/test2/TopPage.php">トップページに戻る</a>';
 }
 echo '</div>';

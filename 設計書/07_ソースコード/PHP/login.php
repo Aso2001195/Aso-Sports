@@ -25,7 +25,7 @@
             echo '<form action="login-out.php" method="post" name="mail_form">';
             echo '<p>メールアドレス：<input type="email" name="mail"></p>';
             echo '<p>パスワード：<input type="password" name="pass"></p>';
-            echo '<input type="submit" name="action_button" value="送信" onclick="return check()">';
+            echo '<input type="submit" name="action_button" value="ログイン" onclick="return check()">';
             echo '<p><a href="Member-Information-Registration.php">登録されてない方はこちら</a></p>';
             echo '</form>';
         }else{

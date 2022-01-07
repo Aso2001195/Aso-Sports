@@ -20,9 +20,9 @@
         function pass(){
             let chk=false;
             const sess=<?php echo json_encode($_SESSION['customer']['pass'],JSON_UNESCAPED_UNICODE)?>;
-            console.log(sess);
-            if(edit.pass.value==sess){
-                chk=true;
+            const pass=edit.pass.value
+            if (sess===pass){
+                 chk=true;
             }
             return chk;
         }

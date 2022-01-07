@@ -22,18 +22,26 @@ if(@$_POST["input"]!="") {
         <p><h4 id="search">商品検索</h4></p>
         <p>商品名
         <form action="TopPage" method=POST>
-            <input type=text name="input" class=sech><input type=submit value=検索>
+            <input type=text id="whiitetxt" name="input" class=sech required="required"><input type=submit value=検索>
         </form>
         </p>
         <div class="search_after">
             <?php
+            $num=0;
             if($_SERVER['REQUEST_METHOD'] === 'POST'){
                 echo '検索結果：　商品名「',$_POST["input"],'」を含む商品は、<br>';
                 while($row=$stmt->fetch(PDO::PARAM_INT)) {
-                    $name=$row['category_name'];
-                    echo $name,':';
+                    if (isset($row['category_name'])) {
+                        $name = $row['category_name'];
+                        echo $name, ':';
+                        $num++;
+                    }
                 }
-                echo "にあります。";
+                if ($num!=0) {
+                    echo "にあります。";
+                }else{
+                    echo '<h4 id="err">ございませんでした</h4>';
+                }
             }
             ?>
         </div>
@@ -88,76 +96,76 @@ if(@$_POST["input"]!="") {
                 <div class="baseball_ball"><p><a href="product-list-baseball.php">・ボール</a></p></div>
             </div>
         </div>
-            </p>
-            <p id="soccer">
-            <div class="soccer">
-                <div class="category_so">
-                    サッカー
-                </div><br>
-                <div class="img">
-                    <img src="http://aso2001195.perma.jp/test2/img/サッカーボール.png" width="100px" height="100px">
-                    <img src="http://aso2001195.perma.jp/test2/img/レガース-img.png" width="100px" height="100px">
-                    <img src="http://aso2001195.perma.jp/test2/img/サッカーシューズ.png" width="110px" height="100px">
-                </div>
-                <div class="Cochin_so">
-                    <div class="soccer_ball"><p>・ボール</p></div>
-                    <p><a href="product-list-soccerball4.php">子供用(4号球)</a></p>
-                    <p><a href="product-list-soccerball5.php">5号球</a></p>
-                    <div class="soccer_leggings"><p><a href="product-list-legers.php">レガース</a></p></div>
-                    <div class="soccer_spike"><p>・スパイク</p></div>
-                    <p><a href="product-list-soccershoes-FG.php">FG(芝生用)</a></p>
-                    <p><a href="product-list-soccershoes-HG.php">HG(土用)</a></p>
-                </div>
+        </p>
+        <p id="soccer">
+        <div class="soccer">
+            <div class="category_so">
+                サッカー
+            </div><br>
+            <div class="img">
+                <img src="http://aso2001195.perma.jp/test2/img/サッカーボール.png" width="100px" height="100px">
+                <img src="http://aso2001195.perma.jp/test2/img/レガース-img.png" width="100px" height="100px">
+                <img src="http://aso2001195.perma.jp/test2/img/サッカーシューズ.png" width="110px" height="100px">
             </div>
-            </p>
-            <p id="volleyball">
-            <div class="volleyball">
-                <div class="category_voll">
-                    バレーボール
-                </div><br>
-                <div class="img">
-                    <img src="http://aso2001195.perma.jp/test2/img/ミカサボール 1.png" width="100px" height="100px">
-                    <img src="http://aso2001195.perma.jp/test2/img/モルテンボール 1.png" width="100px" height="100px">
-                    <img src="http://aso2001195.perma.jp/test2/img/バレーシューズ（黒）.png" width="100px" height="100px">
-                    <img src="http://aso2001195.perma.jp/test2/img/バレーシューズ（ピンク）.png" width="100px" height="100px">
-                </div>
-                <div class="Cochin_voll">
-                    <div class="volleyball_ball"><p>・ボール</p></div>
-                    <p><a href="product-list-volleyball-mikasa.php">MiKASA</a></p>
-                    <p><a href="product-list-volleyball-molten.php">molten</a></p>
-                    <div class="volleyball_shoes"><p><a href="product-list-volleyballshoe.php">シューズ</a></p></div>
-                </div>
+            <div class="Cochin_so">
+                <div class="soccer_ball"><p>・ボール</p></div>
+                <p><a href="product-list-soccerball4.php">子供用(4号球)</a></p>
+                <p><a href="product-list-soccerball5.php">5号球</a></p>
+                <div class="soccer_leggings"><p><a href="product-list-legers.php">レガース</a></p></div>
+                <div class="soccer_spike"><p>・スパイク</p></div>
+                <p><a href="product-list-soccershoes-FG.php">FG(芝生用)</a></p>
+                <p><a href="product-list-soccershoes-HG.php">HG(土用)</a></p>
             </div>
-            </p>
-            <p id="basketball">
-            <div class="basketball">
-                <div class="category_bas">
-                    バスケットボール
-                </div><br>
-                <div class="img">
-                    <img src="http://aso2001195.perma.jp/test2/img/molten-img.png" width="100px" height="100px">
-                    <img src="http://aso2001195.perma.jp/test2/img/SPALDING-IMG.png" width="100px" height="100px">
-                    <img src="http://aso2001195.perma.jp/test2/img/バスケシューズ（赤）.png" width="110px" height="100px">
-                    <img src="http://aso2001195.perma.jp/test2/img/バスケシューズ（白）.png" width="110px" height="100px">
-                </div>
-                <div class="Cochin_bas">
-                    <div class="basketball_ball"><p>・ボール</p></div>
-                    <p><a href="product-list-basketball-molten.php">molten</a></p>
-                    <p><a href="product-list-basketball-spalding.php">SPALDING</a></p>
-                    <div class="basketball_shoes"><p><a href="product-list-basketshoe.php">シューズ</a></p></div>
-                </div>
-            </div>
-            </p>
         </div>
+        </p>
+        <p id="volleyball">
+        <div class="volleyball">
+            <div class="category_voll">
+                バレーボール
+            </div><br>
+            <div class="img">
+                <img src="http://aso2001195.perma.jp/test2/img/ミカサボール 1.png" width="100px" height="100px">
+                <img src="http://aso2001195.perma.jp/test2/img/モルテンボール 1.png" width="100px" height="100px">
+                <img src="http://aso2001195.perma.jp/test2/img/バレーシューズ（黒）.png" width="100px" height="100px">
+                <img src="http://aso2001195.perma.jp/test2/img/バレーシューズ（ピンク）.png" width="100px" height="100px">
+            </div>
+            <div class="Cochin_voll">
+                <div class="volleyball_ball"><p>・ボール</p></div>
+                <p><a href="product-list-volleyball-mikasa.php">MiKASA</a></p>
+                <p><a href="product-list-volleyball-molten.php">molten</a></p>
+                <div class="volleyball_shoes"><p><a href="product-list-volleyballshoe.php">・シューズ</a></p></div>
+            </div>
+        </div>
+        </p>
+        <p id="basketball">
+        <div class="basketball">
+            <div class="category_bas">
+                バスケットボール
+            </div><br>
+            <div class="img">
+                <img src="http://aso2001195.perma.jp/test2/img/molten-img.png" width="100px" height="100px">
+                <img src="http://aso2001195.perma.jp/test2/img/SPALDING-IMG.png" width="100px" height="100px">
+                <img src="http://aso2001195.perma.jp/test2/img/バスケシューズ（赤）.png" width="110px" height="100px">
+                <img src="http://aso2001195.perma.jp/test2/img/バスケシューズ（白）.png" width="110px" height="100px">
+            </div>
+            <div class="Cochin_bas">
+                <div class="basketball_ball"><p>・ボール</p></div>
+                <p><a href="product-list-basketball-molten.php">molten</a></p>
+                <p><a href="product-list-basketball-spalding.php">SPALDING</a></p>
+                <div class="basketball_shoes"><p><a href="product-list-basketshoe.php">・シューズ</a></p></div>
+            </div>
+        </div>
+        </p>
     </div>
-    <script type="text/javascript">
-        function chkdisp( obj,id ) {
-            if( obj.checked ){
-                document.getElementsByClassName(id)[0].style.display = "block";
-            }
-            else {
-                document.getElementsByClassName(id)[0].style.display = "none";
-            }
+</div>
+<script type="text/javascript">
+    function chkdisp( obj,id ) {
+        if( obj.checked ){
+            document.getElementsByClassName(id)[0].style.display = "block";
         }
-    </script>
-    <?php require 'footer.php';?>
+        else {
+            document.getElementsByClassName(id)[0].style.display = "none";
+        }
+    }
+</script>
+<?php require 'footer.php';?>

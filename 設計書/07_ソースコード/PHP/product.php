@@ -18,6 +18,8 @@ $vshoe='<a href="http://aso2001195.perma.jp/test2/product-list-volleyballshoe.ph
 $bmolten='<a href="http://aso2001195.perma.jp/test2/product-list-basketball-molten.php">';
 $bspalding='<a href="http://aso2001195.perma.jp/test2/product-list-basketball-spalding.php">';
 $bshoe='<a href="http://aso2001195.perma.jp/test2/product-list-basketshoe.php">';
+
+
 ?>
 <?php
 if(isset($_GET['item_name'])) {
@@ -52,7 +54,7 @@ if(isset($_GET['item_name'])) {
         }else if($item['category_id']==10){
             echo $sb5;
         }else if($item['category_id']==11){
-           echo $legers;
+            echo $legers;
         }else if($item['category_id']==13){
             echo $fg;
         }else if($item['category_id']==14){
@@ -64,13 +66,13 @@ if(isset($_GET['item_name'])) {
         }else if($item['category_id']==19){
             echo $vshoe;
         }else if($item['category_id']==22){
-           echo $bmolten;
+            echo $bmolten;
         }else if($item['category_id']==23){
             echo $bspalding;
         }else if($item['category_id']==24){
             echo $bshoe;
         }
-        echo '<input type="button" value="一覧に戻る"></a>';
+        echo '<input type="button" id="back" value="商品一覧に戻る"></a>';
         echo '</div>';
     }
 }
