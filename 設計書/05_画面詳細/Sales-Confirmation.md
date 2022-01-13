@@ -1,5 +1,5 @@
 ### 画面詳細図
-## カート
+## 売上確認
 ### プロトタイプは以下のリンク先
 [プロトタイプ](https://www.figma.com/file/36DPETfL3dwzP5NjNW1WZQ/Untitled?node-id=0%3A1)
 *****
